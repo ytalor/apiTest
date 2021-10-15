@@ -1,0 +1,14 @@
+version: 0.2
+
+env:
+  shell: bash
+
+phases:
+  install:
+    runtime-version:
+      node: 14
+    commands:
+      - yarn install
+  build:
+    commands:
+      - aws cloudformation package --template-file cfn-template.yaml --output-template-file packaged.yaml --s3-bucket $DEPLOYMENT_BUCKET

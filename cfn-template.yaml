@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  FrancoLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: FrancoApi
+      Runtime: nodejs14.x
+      Handler: index.handler
+      AutoPublishAlias: alias
+      DeploymentPreference: AllAtOnce
+      MemorySize: 128
+      Role: arn:aws:iam::761774289685:role/service-role/francoLambda-role-78w9501k
